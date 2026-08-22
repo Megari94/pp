@@ -1,8 +1,6 @@
 import { motion } from 'motion/react'
 import { ArrowDown } from 'lucide-react'
 import { siteConfig } from '../data/siteConfig'
-import { HeroVisual } from '../components/HeroVisual'
-import { GithubMark } from '../components/icons/GithubMark'
 import { useReducedMotion } from '../hooks/useReducedMotion'
 import './Hero.css'
 
@@ -16,6 +14,7 @@ export function Hero() {
     <section id="inicio" className="hero">
       <div className="hero__glow" aria-hidden="true" />
       <div className="container hero__grid">
+        <span className="section-index section-index--hero" aria-hidden="true">01</span>
         <div className="hero__content">
           <motion.p
             className="eyebrow"
@@ -67,23 +66,21 @@ export function Hero() {
             </a>
           </motion.div>
 
-          <motion.a
-            className="hero__github"
-            href={siteConfig.social.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={initial}
-            animate={animate}
-            transition={{ duration: 0.55, delay: 0.4 }}
-          >
-            <GithubMark size={18} />
-            github.com/Megari94
-          </motion.a>
         </div>
 
-        <div className="hero__visual-wrap">
-          <HeroVisual />
-        </div>
+        <motion.div
+          className="hero__visual-wrap"
+          initial={reduced ? undefined : { opacity: 0, scale: 0.92, rotateY: 8 }}
+          animate={reduced ? undefined : { opacity: 1, scale: 1, rotateY: 0 }}
+          transition={{ duration: 0.9, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="hero-core__labels" aria-hidden="true">
+            <span>Design</span><span>Code</span><span>Systems</span>
+          </div>
+          <img src="/holsbi-core.png" alt="Holsbi Core, letra H modular iluminada en cian y magenta" className="hero-core" />
+          <span className="hero-core__scan" aria-hidden="true" />
+          <p className="hero-core__caption">Holsbi Core <small>v2.0</small></p>
+        </motion.div>
       </div>
 
       <a href="#sobre-mi" className="hero__scroll" aria-label="Ir a la siguiente seccion">

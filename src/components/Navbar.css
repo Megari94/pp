@@ -4,12 +4,29 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: transparent;
+  background: rgba(5, 8, 23, 0.55);
+  backdrop-filter: blur(14px);
   border-bottom: 1px solid transparent;
   transition:
     background var(--transition-base),
     border-color var(--transition-base);
 }
+
+.navbar__availability {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  font: 600 0.67rem var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.navbar__availability i { width: 6px; height: 6px; border-radius: 50%; background: #27f58b; box-shadow: 0 0 10px #27f58b; }
+
+.navbar__progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: var(--gradient-accent); transform-origin: left; }
+
+@media (min-width: 1050px) { .navbar__availability { display: inline-flex; } }
 
 .navbar--scrolled {
   background: rgba(5, 8, 22, 0.82);

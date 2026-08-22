@@ -40,6 +40,16 @@ export function HeroVisual() {
         points="210,96 324,210 210,324 96,210"
       />
 
+      <g className="hero-visual__hud" aria-hidden="true">
+        <path d="M74 154v-42h42" />
+        <path d="M346 154v-42h-42" />
+        <path d="M74 266v42h42" />
+        <path d="M346 266v42h-42" />
+        <circle cx="210" cy="210" r="188" />
+      </g>
+
+      <line className="hero-visual__scan" x1="82" y1="164" x2="338" y2="164" />
+
       <text x="210" y="196" textAnchor="middle" className="hero-visual__mark">
         MH
       </text>

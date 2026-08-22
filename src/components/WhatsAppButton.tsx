@@ -1,5 +1,5 @@
-import { MessageCircle } from 'lucide-react'
 import { siteConfig } from '../data/siteConfig'
+import { WhatsAppMark } from './icons/WhatsAppMark'
 import './WhatsAppButton.css'
 
 export function WhatsAppButton() {
@@ -16,7 +16,7 @@ export function WhatsAppButton() {
       className="whatsapp-fab"
       aria-label="Escribir por WhatsApp"
     >
-      <MessageCircle size={24} strokeWidth={2} />
+      <WhatsAppMark size={26} />
     </a>
   )
 }

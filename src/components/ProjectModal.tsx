@@ -3,7 +3,6 @@ import { ExternalLink, X } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import type { Project } from '../types'
 import { useReducedMotion } from '../hooks/useReducedMotion'
-import { GithubMark } from './icons/GithubMark'
 import './ProjectModal.css'
 
 interface ProjectModalProps {
@@ -117,17 +116,6 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                   <ExternalLink size={16} />
                   Visitar sitio
                 </a>
-                {project.repoUrl && (
-                  <a
-                    href={project.repoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-secondary"
-                  >
-                    <GithubMark size={16} />
-                    Repositorio
-                  </a>
-                )}
               </div>
             </div>
           </motion.div>

@@ -1,6 +1,7 @@
-import { Mail, MapPin, MessageCircle } from 'lucide-react'
+import { Mail, MapPin } from 'lucide-react'
 import { siteConfig } from '../data/siteConfig'
 import { Reveal } from '../components/Reveal'
+import { WhatsAppMark } from '../components/icons/WhatsAppMark'
 import './Contact.css'
 
 export function Contact() {
@@ -11,26 +12,28 @@ export function Contact() {
   return (
     <section id="contacto" className="section contact">
       <div className="container">
+        <span className="section-index" aria-hidden="true">06</span>
         <Reveal className="section-heading">
           <p className="eyebrow">Contacto</p>
-          <h2 className="section-title">Conversemos sobre tu proyecto</h2>
+          <h2 className="section-title">Construyamos algo que funcione.</h2>
           <p className="section-lead">
             Contame que necesitas resolver. Respondo por WhatsApp o email.
           </p>
         </Reveal>
 
         <div className="contact__grid">
+          <div className="contact__terminal" aria-label="Terminal Holsbi conectada">holsbi@dev:~$ <span>ready_</span></div>
           <Reveal className="contact__card">
-            <MessageCircle size={20} />
+            <WhatsAppMark size={22} />
             <div>
-              <p className="contact__label">WhatsApp</p>
               <a
                 href={`https://wa.me/${siteConfig.whatsapp.number}?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="contact__value"
+                className="btn btn-primary contact__action"
               >
-                {siteConfig.whatsapp.display}
+                <WhatsAppMark size={19} />
+                Enviar WhatsApp
               </a>
             </div>
           </Reveal>
@@ -38,9 +41,9 @@ export function Contact() {
           <Reveal delay={0.08} className="contact__card">
             <Mail size={20} />
             <div>
-              <p className="contact__label">Email</p>
-              <a href={`mailto:${siteConfig.email}`} className="contact__value">
-                {siteConfig.email}
+              <a href={`mailto:${siteConfig.email}`} className="btn btn-secondary contact__action">
+                <Mail size={19} />
+                Enviar mail
               </a>
             </div>
           </Reveal>

@@ -1,14 +1,15 @@
 :root {
-  --color-bg: #050816;
-  --color-bg-secondary: #090d1f;
-  --color-surface: #0d1328;
-  --color-surface-hover: #121a38;
-  --color-text: #eaf2ff;
-  --color-text-secondary: #9aa8c7;
-  --color-cyan: #22e6e6;
+  --color-bg: #050817;
+  --color-bg-secondary: #071526;
+  --color-surface: rgba(12, 21, 43, 0.72);
+  --color-surface-hover: rgba(17, 35, 62, 0.88);
+  --color-text: #edf4ff;
+  --color-text-secondary: #8e9bb8;
+  --color-cyan: #20e7f0;
+  --color-blue: #5285ff;
   --color-violet: #8b5cf6;
-  --color-magenta: #ff3cac;
-  --color-border: rgba(125, 145, 255, 0.2);
+  --color-magenta: #ff2daf;
+  --color-border: rgba(82, 133, 255, 0.2);
   --color-border-strong: rgba(125, 145, 255, 0.4);
 
   --gradient-accent: linear-gradient(
@@ -18,9 +19,9 @@
     var(--color-magenta)
   );
 
-  --font-display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
-  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Consolas', monospace;
+  --font-display: 'Oxanium', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'Oxanium', 'Consolas', monospace;
 
   --radius-sm: 8px;
   --radius-md: 14px;

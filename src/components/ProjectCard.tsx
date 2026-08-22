@@ -1,6 +1,5 @@
 import { ExternalLink } from 'lucide-react'
 import type { Project } from '../types'
-import { GithubMark } from './icons/GithubMark'
 import './ProjectCard.css'
 
 interface ProjectCardProps {
@@ -11,6 +10,9 @@ interface ProjectCardProps {
 export function ProjectCard({ project, onOpenDetail }: ProjectCardProps) {
   return (
     <article className="project-card">
+      <div className="project-card__chrome" aria-hidden="true">
+        <span /><span /><span /><p>{project.liveUrl.replace(/^https?:\/\//, '')}</p>
+      </div>
       <button
         type="button"
         className="project-card__media-btn"
@@ -31,6 +33,7 @@ export function ProjectCard({ project, onOpenDetail }: ProjectCardProps) {
       <div className="project-card__body">
         <h3 className="project-card__title">{project.name}</h3>
         <p className="project-card__tagline">{project.tagline}</p>
+        <p className="project-card__problem"><strong>Necesidad:</strong> {project.problem}</p>
 
         <ul className="project-card__tech">
           {project.technologies.slice(0, 4).map((tech) => (
@@ -56,17 +59,6 @@ export function ProjectCard({ project, onOpenDetail }: ProjectCardProps) {
             >
               <ExternalLink size={18} />
             </a>
-            {project.repoUrl && (
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Repositorio de ${project.name}`}
-                className="project-card__icon-link"
-              >
-                <GithubMark size={18} />
-              </a>
-            )}
           </div>
         </div>
       </div>

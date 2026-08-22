@@ -75,11 +75,14 @@ Pages, Vercel). Pasos generales:
 3. Actualizar `siteConfig.siteUrl` y las URLs de `index.html` /
    `public/sitemap.xml` con el dominio final.
 
+## Fuente de trayectoria
+
+La seleccion de formacion y experiencia de [`src/data/experience.ts`](src/data/experience.ts)
+se basa exclusivamente en el CV de Marianela. El portfolio no publica enlaces a repositorios:
+los proyectos se muestran mediante sus versiones en produccion.
+
 ## TODO pendientes conocidos
 
-- Confirmar periodos exactos de la trayectoria en
-  [`src/data/experience.ts`](src/data/experience.ts) (formacion, mentorias,
-  experiencia administrativa).
 - Definir la URL de despliegue final y actualizarla en `siteConfig.ts`,
   `index.html` y `public/sitemap.xml`.
 - Reemplazar las imagenes de vista previa de proyectos en `public/projects/`

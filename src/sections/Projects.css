@@ -1,10 +1,12 @@
 .projects__grid {
   display: grid;
-  gap: var(--space-8);
+  gap: clamp(3rem, 7vw, 7rem);
 }
 
 @media (min-width: 700px) {
   .projects__grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
   }
+  .projects__grid > :nth-child(2) { margin-top: 6rem; }
 }

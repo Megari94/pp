@@ -19,16 +19,15 @@ export interface Project {
   image: string
   imageAlt: string
   liveUrl: string
-  repoUrl?: string
 }
 
-export type ExperienceCategory = 'formacion' | 'docencia' | 'administrativa' | 'actual' | 'holsbi'
+export type ExperienceCategory = 'formacion' | 'experiencia'
 
 export interface ExperienceItem {
   id: string
   title: string
   organization: string
-  period: string
+  period?: string
   category: ExperienceCategory
   description: string
 }

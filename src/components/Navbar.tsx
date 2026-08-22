@@ -7,10 +7,15 @@ import './Navbar.css'
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [progress, setProgress] = useState(0)
   const activeId = useActiveSection(navItems.map((item) => item.id))
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24)
+      const max = document.documentElement.scrollHeight - window.innerHeight
+      setProgress(max > 0 ? window.scrollY / max : 0)
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -49,6 +54,8 @@ export function Navbar() {
           ))}
         </nav>
 
+        <span className="navbar__availability"><i />Disponible</span>
+
         <button
           type="button"
           className="navbar__toggle"
@@ -60,6 +67,7 @@ export function Navbar() {
           {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
+      <span className="navbar__progress" style={{ transform: `scaleX(${progress})` }} />
 
       <nav
         id="mobile-menu"

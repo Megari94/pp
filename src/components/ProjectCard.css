@@ -1,7 +1,7 @@
 .project-card {
   display: flex;
   flex-direction: column;
-  border-radius: var(--radius-lg);
+  border-radius: 3px 20px 3px 20px;
   border: 1px solid var(--color-border);
   background: var(--color-surface);
   overflow: hidden;
@@ -9,6 +9,29 @@
     transform var(--transition-base),
     border-color var(--transition-base),
     box-shadow var(--transition-base);
+  position: relative;
+}
+
+.project-card__chrome { height: 38px; display:flex; align-items:center; gap:7px; padding:0 14px; background:rgba(4,9,22,.94); border-bottom:1px solid var(--color-border); }
+.project-card__chrome span { width:7px;height:7px;border-radius:50%;background:var(--color-cyan);opacity:.65 }
+.project-card__chrome span:nth-child(2){background:var(--color-violet)}.project-card__chrome span:nth-child(3){background:var(--color-magenta)}
+.project-card__chrome p { margin-left:.5rem; padding:.32rem .8rem; border:1px solid var(--color-border); border-radius:999px; color:var(--color-text-secondary); font:500 .62rem var(--font-mono); max-width:70%; overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(120deg, transparent 12%, var(--color-cyan), transparent 42%, transparent 65%, var(--color-magenta), transparent 92%);
+  background-size: 260% 100%;
+  opacity: 0;
+  pointer-events: none;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  transition: opacity var(--transition-base);
+  animation: card-energy 6s linear infinite;
 }
 
 @media (hover: hover) {
@@ -17,7 +40,11 @@
     border-color: var(--color-border-strong);
     box-shadow: var(--shadow-card);
   }
+
+  .project-card:hover::before { opacity: 0.85; }
 }
+
+@keyframes card-energy { to { background-position: -260% 0; } }
 
 .project-card__media-btn {
   position: relative;
@@ -34,7 +61,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 700ms cubic-bezier(.22,1,.36,1);
 }
+@media (hover:hover){.project-card:hover .project-card__image{transform:scale(1.025) translateY(-3px)}}
 
 .project-card__status {
   position: absolute;
@@ -58,9 +87,11 @@
 }
 
 .project-card__title {
-  font-size: 1.25rem;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
   color: var(--color-text);
 }
+.project-card__problem { color:var(--color-text-secondary); font-size:.86rem; line-height:1.55; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.project-card__problem strong{color:var(--color-cyan);font-weight:500}
 
 .project-card__tagline {
   color: var(--color-text-secondary);

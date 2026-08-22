@@ -28,7 +28,6 @@ export const projects: Project[] = [
     image: '/projects/encantado-mates.svg',
     imageAlt: 'Vista previa del sitio Encantado Mates',
     liveUrl: 'https://encantadomates.argtech.workers.dev/',
-    repoUrl: 'https://github.com/Megari94/encantadoMates',
   },
   {
     slug: 'media-kit-diario-chaco',
@@ -47,6 +46,5 @@ export const projects: Project[] = [
     image: '/projects/media-kit-diario-chaco.svg',
     imageAlt: 'Vista previa del Media Kit de Diario Chaco',
     liveUrl: 'https://mediakit.diariochaco.com/',
-    repoUrl: 'https://github.com/Megari94/megari94.github.io',
   },
 ]

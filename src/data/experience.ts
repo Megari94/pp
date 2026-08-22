@@ -1,63 +1,45 @@
 import type { ExperienceItem } from '../types'
 
-/**
- * Linea de trayectoria. Los periodos marcados "TODO" todavia no tienen
- * fecha confirmada: completar con mes/anio real antes de publicar si se
- * quiere mostrar precision, o dejar la etiqueta generica.
- */
+/** Seleccion breve basada exclusivamente en CV_Marianela_Holsbach.pdf. */
 export const experience: ExperienceItem[] = [
   {
-    id: 'informatorio-chaco',
-    title: 'Formacion en Python y Django',
-    organization: 'Informatorio Chaco',
-    period: 'TODO: confirmar periodo',
+    id: 'tecnica-programacion',
+    title: 'Tecnica Universitaria en Programacion',
+    organization: 'UTN',
     category: 'formacion',
-    description:
-      'Formacion en desarrollo backend con Python y el framework Django.',
+    description: 'Formacion universitaria en programacion y desarrollo de soluciones digitales.',
   },
   {
-    id: 'mentoria-python',
-    title: 'Mentora de Python',
+    id: 'mentor-informatorio',
+    title: 'Mentor',
     organization: 'Informatorio Chaco',
-    period: 'TODO: confirmar periodo',
-    category: 'docencia',
+    category: 'experiencia',
     description:
-      'Acompanamiento a estudiantes en el aprendizaje de Python, resolviendo dudas y revisando ejercicios.',
+      'Acompanamiento a estudiantes en programacion, resolucion de actividades y desarrollo de proyectos.',
   },
   {
-    id: 'profesorado-informatica',
-    title: 'Profesorado de Educacion Secundaria en Informatica',
-    organization: 'UEGP N.° 172',
-    period: 'En formacion',
-    category: 'formacion',
+    id: 'laboratorio-utn',
+    title: 'Ayudante de Laboratorio de Informatica',
+    organization: 'UTN',
+    category: 'experiencia',
     description:
-      'Formacion docente orientada a la ensenanza de informatica en el nivel secundario.',
+      'Soporte tecnico a estudiantes y docentes, instalacion de programas y configuracion de equipos.',
   },
   {
-    id: 'utn-tesoreria',
-    title: 'Area de Tesoreria / Egresos',
-    organization: 'UTN Facultad Regional Resistencia',
-    period: 'TODO: confirmar periodo',
-    category: 'administrativa',
+    id: 'digitalizacion-komsa',
+    title: 'Digitalizador',
+    organization: 'Komsa',
+    category: 'experiencia',
     description:
-      'Experiencia administrativa que aporto comprension de procesos internos, gestion documental y trato con distintas areas de una institucion.',
+      'Digitalizacion, clasificacion y conversion de documentacion fisica a una base de datos de uso interno.',
   },
   {
-    id: 'diario-chaco-publicidad',
-    title: 'Area de Publicidad',
-    organization: 'Diario Chaco y Diario TAG',
+    id: 'publicidad-marketing-diarios',
+    title: 'Publicidad & Marketing',
+    organization: 'Diario Chaco · Diario TAG',
     period: 'Actualidad',
-    category: 'actual',
+    category: 'experiencia',
     description:
-      'Trabajo comercial que implica comprender necesidades de clientes, comunicar propuestas con claridad y coordinar contenido y campanas publicitarias.',
-  },
-  {
-    id: 'holsbi',
-    title: 'Creacion y desarrollo de Holsbi',
-    organization: 'Proyecto propio',
-    period: 'Actualidad',
-    category: 'holsbi',
-    description:
-      'Construccion progresiva de Holsbi como identidad tecnologica desde la cual desarrollo soluciones digitales.',
+      'Trabajo en publicidad y marketing, combinando comunicacion, contenido y soluciones digitales para las necesidades comerciales de ambos medios.',
   },
 ]

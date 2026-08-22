@@ -61,20 +61,6 @@
   color: var(--color-cyan);
 }
 
-.footer__github {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  color: var(--color-text-secondary);
-  font-size: 0.88rem;
-  min-height: 44px;
-  transition: color var(--transition-fast);
-}
-
-.footer__github:hover {
-  color: var(--color-cyan);
-}
-
 .footer__bottom {
   border-top: 1px solid var(--color-border);
   padding-block: var(--space-4);
@@ -84,3 +70,8 @@
   color: var(--color-text-secondary);
   font-size: 0.78rem;
 }
+
+.footer { padding-top: var(--space-8); }
+.footer__bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; }
+.footer__bottom a,
+.footer__bottom span { font: 600 0.68rem var(--font-display); text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-cyan); }

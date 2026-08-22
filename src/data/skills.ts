@@ -26,50 +26,21 @@ export const skillGroups: SkillGroupData[] = [
     items: ['Python', 'Django'],
   },
   {
-    id: 'maquetacion-interfaces',
-    title: 'Maquetacion e interfaces',
-    items: ['CSS moderno con variables', 'Tailwind CSS', 'Microinteracciones y animacion con Motion'],
-  },
-  {
-    id: 'git-github',
-    title: 'Git y GitHub',
-    items: ['Control de versiones', 'Ramas y repositorios remotos'],
-  },
-  {
-    id: 'integracion-despliegue',
-    title: 'Integracion y despliegue',
-    items: ['Supabase (Postgres, Auth, Storage)', 'Despliegue en Cloudflare Workers', 'Despliegue con dominio propio (GitHub Pages)'],
-  },
-  {
-    id: 'analisis-necesidades',
-    title: 'Analisis de necesidades',
+    id: 'soluciones-digitales',
+    title: 'Soluciones digitales',
     items: [
       'Relevamiento de requerimientos',
-      'Traduccion de objetivos de negocio en soluciones digitales',
+      'Supabase y automatizacion',
+      'Despliegue y mejora continua',
     ],
   },
   {
-    id: 'comunicacion-clientes',
-    title: 'Comunicacion con clientes',
+    id: 'publicidad-marketing',
+    title: 'Publicidad y marketing',
     items: [
       'Elaboracion de propuestas comerciales',
+      'Contenido y comunicacion digital',
       'Atencion y seguimiento de anunciantes',
-    ],
-  },
-  {
-    id: 'pensamiento-procesos',
-    title: 'Pensamiento orientado a procesos',
-    items: [
-      'Comprension de flujos administrativos internos',
-      'Organizacion y documentacion de tareas',
-    ],
-  },
-  {
-    id: 'ia-apoyo-desarrollo',
-    title: 'Uso estrategico de IA como apoyo al desarrollo',
-    items: [
-      'Prototipado asistido por IA',
-      'Aceleracion de tareas repetitivas de desarrollo',
     ],
   },
 ]

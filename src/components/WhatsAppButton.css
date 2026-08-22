@@ -8,10 +8,10 @@
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border-strong);
-  color: var(--color-cyan);
-  box-shadow: var(--shadow-card);
+  background: linear-gradient(145deg, rgba(34, 230, 230, 0.2), rgba(139, 92, 246, 0.28) 55%, rgba(255, 60, 172, 0.2));
+  border: 1px solid var(--color-cyan);
+  color: var(--color-text);
+  box-shadow: 0 0 28px rgba(34, 230, 230, 0.16), inset 0 0 18px rgba(139, 92, 246, 0.12);
   transition:
     transform var(--transition-fast),
     box-shadow var(--transition-fast),

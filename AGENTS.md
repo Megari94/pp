@@ -55,8 +55,9 @@ npm run build    # tsc -b + vite build
 - Antes de sumar una tecnologia a `src/data/skills.ts`, verificar que
   aparezca en un proyecto real (`src/data/projects.ts`) o en formacion
   confirmada, o dejarla marcada `TODO`.
-- Fechas no confirmadas en `src/data/experience.ts` deben quedar como
-  `"TODO: confirmar periodo"`, nunca inventadas.
+- La trayectoria de `src/data/experience.ts` debe basarse exclusivamente en el
+  CV confirmado de Marianela. Si no hay fecha, se omite; nunca se inventa.
+- No publicar enlaces a repositorios ni accesos al codigo de los proyectos.
 - Holsbi se presenta como identidad tecnologica en construccion, no como
   empresa consolidada con equipo/clientes.
 

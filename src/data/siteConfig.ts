@@ -15,10 +15,6 @@ export const siteConfig = {
   email: 'holsbachmarianela@gmail.com',
   whatsapp: {
     number: '5493624147072',
-    display: '+54 362 414-7072',
-  },
-  social: {
-    github: 'https://github.com/Megari94',
   },
   // TODO: confirmar URL final una vez desplegado el sitio (dominio propio o subdominio).
   siteUrl: 'https://pp-portfolio.pages.dev',

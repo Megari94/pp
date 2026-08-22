@@ -12,6 +12,7 @@ export function Projects() {
   return (
     <section id="proyectos" className="section projects">
       <div className="container">
+        <span className="section-index" aria-hidden="true">03</span>
         <Reveal className="section-heading">
           <p className="eyebrow">Proyectos</p>
           <h2 className="section-title">Trabajo publicado</h2>

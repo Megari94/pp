@@ -1,6 +1,5 @@
 import { Navbar } from './components/Navbar'
 import { WhatsAppButton } from './components/WhatsAppButton'
-import { FloorNav } from './components/FloorNav'
 import { Hero } from './sections/Hero'
 import { About } from './sections/About'
 import { Projects } from './sections/Projects'
@@ -21,7 +20,6 @@ function App() {
         Saltar al contenido principal
       </a>
       <Navbar />
-      <FloorNav />
       <main>
         <Hero />
         <About />

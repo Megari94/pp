@@ -75,3 +75,4 @@
 .footer__bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; }
 .footer__bottom a,
 .footer__bottom span { font: 600 0.68rem var(--font-display); text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-cyan); }
+.footer__github { display: inline-flex; align-items: center; gap: 0.4em; }

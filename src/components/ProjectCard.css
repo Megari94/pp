@@ -32,6 +32,7 @@
   mask-composite: exclude;
   transition: opacity var(--transition-base);
   animation: card-energy 6s linear infinite;
+  animation-play-state: paused;
 }
 
 @media (hover: hover) {
@@ -41,7 +42,10 @@
     box-shadow: var(--shadow-card);
   }
 
-  .project-card:hover::before { opacity: 0.85; }
+  .project-card:hover::before {
+    opacity: 0.85;
+    animation-play-state: running;
+  }
 }
 
 @keyframes card-energy { to { background-position: -260% 0; } }

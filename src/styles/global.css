@@ -20,86 +20,15 @@ body {
   background-image:
     linear-gradient(rgba(34, 230, 230, 0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(139, 92, 246, 0.025) 1px, transparent 1px),
-    radial-gradient(circle at 78% 15%, rgba(139, 92, 246, 0.1), transparent 31%);
-  background-size: 48px 48px, 48px 48px, auto;
-  background-attachment: fixed;
+    radial-gradient(ellipse 650px 500px at 92% 4%, rgba(139, 92, 246, 0.13), transparent 60%),
+    radial-gradient(ellipse 600px 500px at -8% 58%, rgba(255, 60, 172, 0.08), transparent 55%);
+  background-size: 48px 48px, 48px 48px, auto, auto;
+  background-repeat: repeat, repeat, no-repeat, no-repeat;
 }
 
 #root {
   position: relative;
   isolation: isolate;
-}
-
-.cyber-atmosphere {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.cyber-atmosphere::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    180deg,
-    transparent 0,
-    transparent 5px,
-    rgba(34, 230, 230, 0.018) 6px
-  );
-  animation: cyber-scanlines 12s linear infinite;
-}
-
-.cyber-atmosphere__orb {
-  position: absolute;
-  width: min(44vw, 650px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.1;
-  animation: cyber-drift 16s ease-in-out infinite alternate;
-}
-
-.cyber-atmosphere__orb--cyan {
-  top: 8%;
-  right: -16%;
-  background: var(--color-cyan);
-}
-
-.cyber-atmosphere__orb--magenta {
-  left: -18%;
-  top: 58%;
-  background: var(--color-magenta);
-  animation-delay: -7s;
-  animation-direction: alternate-reverse;
-}
-
-.cyber-atmosphere__beam {
-  position: absolute;
-  left: 0;
-  top: -20vh;
-  width: 1px;
-  height: 140vh;
-  background: linear-gradient(transparent, var(--color-cyan), var(--color-magenta), transparent);
-  box-shadow: 0 0 20px var(--color-cyan);
-  opacity: 0;
-  animation: cyber-beam 11s ease-in-out infinite;
-}
-
-@keyframes cyber-drift {
-  to { transform: translate3d(7vw, 6vh, 0) scale(1.12); }
-}
-
-@keyframes cyber-scanlines {
-  to { transform: translateY(48px); }
-}
-
-@keyframes cyber-beam {
-  0%, 12%, 100% { transform: translateX(-4vw) skewX(-12deg); opacity: 0; }
-  18% { opacity: 0.28; }
-  74% { opacity: 0.12; }
-  82% { transform: translateX(104vw) skewX(-12deg); opacity: 0; }
 }
 
 h1,
@@ -201,7 +130,6 @@ svg {
   background: var(--color-bg);
   box-shadow: 0 0 12px var(--color-cyan);
   transform: translateY(-3px) rotate(45deg);
-  animation: section-node 3.8s ease-in-out infinite;
 }
 
 .section-index {
@@ -222,10 +150,6 @@ svg {
 .section-title { font-size: clamp(2rem, 4.5vw, 3.8rem); }
 
 .eyebrow::before { content: '// '; color: var(--color-magenta); }
-
-@keyframes section-node {
-  50% { border-color: var(--color-magenta); box-shadow: 0 0 18px var(--color-magenta); }
-}
 
 @media (max-width: 767px) {
   .section {
@@ -339,9 +263,4 @@ svg {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-@media (max-width: 767px) {
-  .cyber-atmosphere__orb { filter: blur(70px); opacity: 0.075; }
-  .cyber-atmosphere__beam { display: none; }
 }

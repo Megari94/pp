@@ -57,8 +57,6 @@
   color: var(--color-text);
 }
 
-.hero__title::after { content: ',\A Holsbi'; white-space: pre; color: var(--color-cyan); }
-
 .hero__tagline {
   font-family: var(--font-display);
   font-size: clamp(1.1rem, 2.4vw, 1.4rem);
@@ -76,6 +74,38 @@
   flex-wrap: wrap;
   gap: var(--space-4);
   margin-top: var(--space-2);
+}
+
+.hero__status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+}
+
+.hero__status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #3ddc84;
+  box-shadow: 0 0 8px #3ddc84;
+}
+
+.hero__status-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.hero__status-link:hover {
+  color: var(--color-cyan);
 }
 
 .hero__visual-wrap {

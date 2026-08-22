@@ -2,6 +2,7 @@ import { motion } from 'motion/react'
 import { ArrowDown } from 'lucide-react'
 import { siteConfig } from '../data/siteConfig'
 import { useReducedMotion } from '../hooks/useReducedMotion'
+import { GithubMark } from '../components/icons/GithubMark'
 import './Hero.css'
 
 export function Hero() {
@@ -31,7 +32,9 @@ export function Hero() {
             animate={animate}
             transition={{ duration: 0.55, delay: 0.08 }}
           >
-            {siteConfig.name}
+            {siteConfig.name},
+            <br />
+            <span className="gradient-text">{siteConfig.brand}</span>
           </motion.h1>
 
           <motion.p
@@ -66,6 +69,27 @@ export function Hero() {
             </a>
           </motion.div>
 
+          <motion.div
+            className="hero__status"
+            initial={initial}
+            animate={animate}
+            transition={{ duration: 0.55, delay: 0.4 }}
+          >
+            <span className="hero__status-dot" aria-hidden="true" />
+            SYS.OK
+            <span aria-hidden="true">·</span>
+            27.4514° S, 58.9867° W
+            <span aria-hidden="true">·</span>
+            <a
+              href={siteConfig.social.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero__status-link"
+            >
+              <GithubMark size={14} />
+              github.com/Megari94
+            </a>
+          </motion.div>
         </div>
 
         <motion.div
@@ -77,7 +101,14 @@ export function Hero() {
           <div className="hero-core__labels" aria-hidden="true">
             <span>Design</span><span>Code</span><span>Systems</span>
           </div>
-          <img src="/holsbi-core.png" alt="Holsbi Core, letra H modular iluminada en cian y magenta" className="hero-core" />
+          <img
+            src="/holsbi-core.webp"
+            alt="Holsbi Core, letra H modular iluminada en cian y magenta"
+            className="hero-core"
+            width={900}
+            height={868}
+            fetchPriority="high"
+          />
           <span className="hero-core__scan" aria-hidden="true" />
           <p className="hero-core__caption">Holsbi Core <small>v2.0</small></p>
         </motion.div>

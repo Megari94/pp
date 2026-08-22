@@ -1,5 +1,6 @@
 import { siteConfig } from '../data/siteConfig'
 import { navItems } from '../data/nav'
+import { GithubMark } from '../components/icons/GithubMark'
 import './Footer.css'
 
 export function Footer() {
@@ -28,6 +29,15 @@ export function Footer() {
         <p>
           © {year} {siteConfig.name}. Diseno y desarrollo: {siteConfig.name} — {siteConfig.brand}.
         </p>
+        <a
+          href={siteConfig.social.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer__github"
+        >
+          <GithubMark size={14} />
+          GitHub
+        </a>
         <a href="#inicio">Volver arriba ↑</a><span>SYS.OK</span>
       </div>
     </footer>

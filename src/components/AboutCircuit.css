@@ -1,0 +1,23 @@
+.about-circuit {
+  display: none;
+  position: relative;
+  min-height: 390px;
+}
+
+.about-circuit svg {
+  width: 100%;
+  height: 100%;
+}
+
+.about-circuit__node {
+  fill: var(--color-bg);
+  stroke: var(--color-cyan);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 6px var(--color-cyan));
+}
+
+@media (min-width: 860px) {
+  .about-circuit {
+    display: block;
+  }
+}

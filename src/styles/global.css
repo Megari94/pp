@@ -18,12 +18,13 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   background-image:
-    linear-gradient(rgba(34, 230, 230, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(139, 92, 246, 0.025) 1px, transparent 1px),
+    url('/global-noise.webp'),
+    url('/global-grid.svg'),
     radial-gradient(ellipse 650px 500px at 92% 4%, rgba(139, 92, 246, 0.13), transparent 60%),
     radial-gradient(ellipse 600px 500px at -8% 58%, rgba(255, 60, 172, 0.08), transparent 55%);
-  background-size: 48px 48px, 48px 48px, auto, auto;
+  background-size: 64px 64px, 64px 64px, auto, auto;
   background-repeat: repeat, repeat, no-repeat, no-repeat;
+  background-blend-mode: overlay, normal, normal, normal;
 }
 
 #root {

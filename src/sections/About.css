@@ -10,12 +10,6 @@
   }
 }
 
-.about__circuit { display: none; position: relative; min-height: 390px; }
-.about__circuit::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: linear-gradient(var(--color-cyan), var(--color-violet), var(--color-magenta)); box-shadow: 0 0 12px rgba(32,231,240,.35); }
-.about__circuit span { position: absolute; left: calc(50% - 6px); width: 12px; height: 12px; border: 2px solid var(--color-cyan); border-radius: 50%; background: var(--color-bg); box-shadow: 0 0 14px var(--color-cyan); }
-.about__circuit span:nth-child(1){top:15%}.about__circuit span:nth-child(2){top:49%;border-color:var(--color-violet)}.about__circuit span:nth-child(3){top:82%;border-color:var(--color-magenta)}
-@media (min-width: 860px) { .about__circuit { display: block; } }
-
 .about__intro p {
   font-size: clamp(1.2rem, 2.2vw, 1.55rem);
   color: var(--color-text);

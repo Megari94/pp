@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 340" fill="none" role="img" aria-hidden="true">
+  <path
+    d="M20 20V320M20 170H160M160 20V320"
+    stroke="url(#contact-h-gradient)"
+    stroke-width="10"
+    stroke-linecap="square"
+  />
+  <defs>
+    <linearGradient id="contact-h-gradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22e6e6" />
+      <stop offset="55%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#ff3cac" />
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,5 +1,6 @@
 import { experience } from '../data/experience'
 import { Reveal } from '../components/Reveal'
+import { TimelinePath } from '../components/TimelinePath'
 import './Trajectory.css'
 
 const categoryLabel: Record<string, string> = {
@@ -22,23 +23,26 @@ export function Trajectory() {
           </p>
         </Reveal>
 
-        <ol className="trajectory__timeline">
-          {experience.map((item, index) => (
-            <li key={item.id} className="trajectory__item">
-              <Reveal delay={index * 0.08} className="trajectory__reveal">
-                <div className="trajectory__marker" aria-hidden="true">{String(index + 1).padStart(2, '0')}</div>
-                <div className="trajectory__content">
-                  <span className="trajectory__category">{categoryLabel[item.category]}</span>
-                  <h3 className="trajectory__title">{item.title}</h3>
-                  <p className="trajectory__org">
-                    {item.organization}{item.period ? ` · ${item.period}` : ''}
-                  </p>
-                  <p className="trajectory__desc">{item.description}</p>
-                </div>
-              </Reveal>
-            </li>
-          ))}
-        </ol>
+        <div className="trajectory__timeline-wrap">
+          <TimelinePath />
+          <ol className="trajectory__timeline">
+            {experience.map((item, index) => (
+              <li key={item.id} className="trajectory__item">
+                <Reveal delay={index * 0.08} className="trajectory__reveal">
+                  <div className="trajectory__marker" aria-hidden="true">{String(index + 1).padStart(2, '0')}</div>
+                  <div className="trajectory__content">
+                    <span className="trajectory__category">{categoryLabel[item.category]}</span>
+                    <h3 className="trajectory__title">{item.title}</h3>
+                    <p className="trajectory__org">
+                      {item.organization}{item.period ? ` · ${item.period}` : ''}
+                    </p>
+                    <p className="trajectory__desc">{item.description}</p>
+                  </div>
+                </Reveal>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
     </section>
   )

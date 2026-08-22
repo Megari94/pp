@@ -18,6 +18,8 @@ export interface Project {
   statusLabel: string
   image: string
   imageAlt: string
+  /** true si `image` es una ilustracion de marca y no una captura real del sitio. */
+  imageIsPlaceholder?: boolean
   liveUrl: string
 }
 

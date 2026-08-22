@@ -11,7 +11,7 @@ export function Contact() {
 
   return (
     <section id="contacto" className="section contact">
-      <span className="contact__h-mark" aria-hidden="true">H</span>
+      <img src="/contact-h.svg" alt="" aria-hidden="true" className="contact__h-mark" width={300} height={340} loading="lazy" />
       <div className="container">
         <span className="section-index" aria-hidden="true">06</span>
         <Reveal className="section-heading">

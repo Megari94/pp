@@ -1,4 +1,5 @@
 import { Reveal } from '../components/Reveal'
+import { AboutCircuit } from '../components/AboutCircuit'
 import './About.css'
 
 const points = [
@@ -27,7 +28,7 @@ export function About() {
             </p>
           </Reveal>
 
-          <div className="about__circuit" aria-hidden="true"><span /><span /><span /></div>
+          <AboutCircuit />
           <div className="about__points">
             {points.map((point, index) => (
               <Reveal key={point} delay={index * 0.08} className="about__point">

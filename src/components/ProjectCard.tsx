@@ -28,6 +28,9 @@ export function ProjectCard({ project, onOpenDetail }: ProjectCardProps) {
           className="project-card__image"
         />
         <span className="project-card__status">{project.statusLabel}</span>
+        {project.imageIsPlaceholder && (
+          <span className="project-card__placeholder-tag">Ilustracion, no captura real</span>
+        )}
       </button>
 
       <div className="project-card__body">

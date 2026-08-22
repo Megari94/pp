@@ -97,6 +97,20 @@
   color: var(--color-cyan);
 }
 
+.project-card__placeholder-tag {
+  position: absolute;
+  bottom: var(--space-3);
+  left: var(--space-3);
+  padding: 0.28rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.64rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+  background: rgba(5, 8, 22, 0.8);
+  border: 1px solid rgba(255, 60, 172, 0.4);
+  color: var(--color-magenta);
+}
+
 .project-card__body {
   display: flex;
   flex-direction: column;

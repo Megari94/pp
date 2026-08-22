@@ -6,7 +6,7 @@
 @media (min-width: 700px) {
   .projects__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: start;
+    align-items: stretch;
   }
-  .projects__grid > :nth-child(2) { margin-top: 6rem; }
+  .projects__grid > * { height: 100%; }
 }

@@ -10,6 +10,11 @@
   }
 }
 
+.about__circuit { display: none; width: 100%; min-height: 390px; overflow: visible; }
+.about__circuit path { fill:none;stroke:var(--color-cyan);stroke-width:1;filter:drop-shadow(0 0 6px rgba(32,231,240,.45)); }
+.about__circuit circle { fill:var(--color-bg);stroke:var(--color-magenta);stroke-width:2;filter:drop-shadow(0 0 5px rgba(255,45,175,.6));transform-box:fill-box;transform-origin:center; }
+@media (min-width: 860px) { .about__circuit { display: block; } }
+
 .about__intro p {
   font-size: clamp(1.2rem, 2.2vw, 1.55rem);
   color: var(--color-text);

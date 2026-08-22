@@ -1,5 +1,5 @@
 import { Reveal } from '../components/Reveal'
-import { AboutCircuit } from '../components/AboutCircuit'
+import { motion } from 'motion/react'
 import './About.css'
 
 const points = [
@@ -28,7 +28,27 @@ export function About() {
             </p>
           </Reveal>
 
-          <AboutCircuit />
+          <svg className="about__circuit" viewBox="0 0 100 390" aria-hidden="true">
+            <motion.path
+              d="M50 0V58L28 82V171L68 201V302L50 326V390"
+              initial={{ pathLength: 0, opacity: 0.2 }}
+              whileInView={{ pathLength: 1, opacity: 1 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            />
+            {[82, 201, 326].map((cy, index) => (
+              <motion.circle
+                key={cy}
+                cx={index === 1 ? 68 : index === 0 ? 28 : 50}
+                cy={cy}
+                r="6"
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.25 + index * 0.18, duration: 0.35 }}
+              />
+            ))}
+          </svg>
           <div className="about__points">
             {points.map((point, index) => (
               <Reveal key={point} delay={index * 0.08} className="about__point">

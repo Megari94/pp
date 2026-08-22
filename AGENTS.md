@@ -29,7 +29,7 @@ npm run build    # tsc -b + vite build
   tener texto de contenido hardcodeado salvo copy estructural minimo.
 - `src/sections/*` — una seccion de la pagina por archivo, cada una con su
   CSS junto al componente.
-- `src/components/*` — piezas reutilizables (Navbar, ProjectCard,
+- `src/components/*` — piezas reutilizables (Navbar, FloorNav, ProjectCard,
   ProjectModal, WhatsAppButton, Reveal, iconos custom).
 - `src/hooks/*` — `useReducedMotion`, `useActiveSection` (scroll-spy del
   nav), `useReveal` (IntersectionObserver para animaciones de entrada).

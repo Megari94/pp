@@ -44,7 +44,7 @@ src/
   types/        Tipos compartidos
   hooks/        useReducedMotion, useActiveSection, useReveal
 public/
-  projects/     Imagenes de vista previa de cada proyecto
+  projects/     Capturas WebP reales de cada proyecto publicado
   favicon.svg, og-image.png, robots.txt, sitemap.xml
 ```
 
@@ -85,5 +85,3 @@ los proyectos se muestran mediante sus versiones en produccion.
 
 - Definir la URL de despliegue final y actualizarla en `siteConfig.ts`,
   `index.html` y `public/sitemap.xml`.
-- Reemplazar las imagenes de vista previa de proyectos en `public/projects/`
-  por capturas reales cuando esten disponibles.

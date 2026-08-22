@@ -2,11 +2,11 @@ import { motion } from 'motion/react'
 import { ArrowDown } from 'lucide-react'
 import { siteConfig } from '../data/siteConfig'
 import { useReducedMotion } from '../hooks/useReducedMotion'
+import { HolsbiCore3D } from '../components/HolsbiCore3D'
 import './Hero.css'
 
 export function Hero() {
   const reduced = useReducedMotion()
-
   const initial = reduced ? undefined : { opacity: 0, y: 18 }
   const animate = reduced ? undefined : { opacity: 1, y: 0 }
 
@@ -31,9 +31,7 @@ export function Hero() {
             animate={animate}
             transition={{ duration: 0.55, delay: 0.08 }}
           >
-            {siteConfig.name},
-            <br />
-            <span className="gradient-text">{siteConfig.brand}</span>
+            {siteConfig.name}
           </motion.h1>
 
           <motion.p
@@ -68,17 +66,6 @@ export function Hero() {
             </a>
           </motion.div>
 
-          <motion.div
-            className="hero__status"
-            initial={initial}
-            animate={animate}
-            transition={{ duration: 0.55, delay: 0.4 }}
-          >
-            <span className="hero__status-dot" aria-hidden="true" />
-            SYS.OK
-            <span aria-hidden="true">·</span>
-            27.4514° S, 58.9867° W
-          </motion.div>
         </div>
 
         <motion.div
@@ -87,19 +74,7 @@ export function Hero() {
           animate={reduced ? undefined : { opacity: 1, scale: 1, rotateY: 0 }}
           transition={{ duration: 0.9, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="hero-core__labels" aria-hidden="true">
-            <span>Design</span><span>Code</span><span>Systems</span>
-          </div>
-          <img
-            src="/holsbi-core.webp"
-            alt="Holsbi Core, letra H modular iluminada en cian y magenta"
-            className="hero-core"
-            width={900}
-            height={868}
-            fetchPriority="high"
-          />
-          <span className="hero-core__scan" aria-hidden="true" />
-          <p className="hero-core__caption">Holsbi Core <small>v2.0</small></p>
+          <HolsbiCore3D reduced={reduced} />
         </motion.div>
       </div>
 

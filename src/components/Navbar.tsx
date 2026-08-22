@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { navItems } from '../data/nav'
 import { useActiveSection } from '../hooks/useActiveSection'
+import { HolsbiMark } from './HolsbiMark'
 import './Navbar.css'
 
 export function Navbar() {
@@ -38,7 +39,7 @@ export function Navbar() {
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="container navbar__inner">
         <a href="#inicio" className="navbar__brand" onClick={() => setMenuOpen(false)}>
-          <span className="navbar__brand-mark">MH</span>
+          <span className="navbar__brand-mark"><HolsbiMark compact /></span>
           <span className="navbar__brand-name">Holsbi</span>
         </a>
 

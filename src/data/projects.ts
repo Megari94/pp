@@ -25,9 +25,8 @@ export const projects: Project[] = [
     ],
     status: 'publicado',
     statusLabel: 'Publicado',
-    image: '/projects/encantado-mates.svg',
-    imageAlt: 'Ilustracion de marca del sitio Encantado Mates',
-    imageIsPlaceholder: true,
+    image: '/projects/encantado-mates-real.webp',
+    imageAlt: 'Vista previa del sitio Encantado Mates',
     liveUrl: 'https://encantadomates.argtech.workers.dev/',
   },
   {
@@ -44,9 +43,8 @@ export const projects: Project[] = [
     technologies: ['HTML', 'CSS', 'JavaScript'],
     status: 'publicado',
     statusLabel: 'Publicado',
-    image: '/projects/media-kit-diario-chaco.svg',
-    imageAlt: 'Ilustracion de marca del Media Kit de Diario Chaco',
-    imageIsPlaceholder: true,
+    image: '/projects/media-kit-real.webp',
+    imageAlt: 'Vista previa del Media Kit de Diario Chaco',
     liveUrl: 'https://mediakit.diariochaco.com/',
   },
 ]

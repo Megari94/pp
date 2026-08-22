@@ -1,63 +1,18 @@
-import { Mail, MapPin } from 'lucide-react'
+import { Mail } from 'lucide-react'
+import { motion } from 'motion/react'
 import { siteConfig } from '../data/siteConfig'
 import { Reveal } from '../components/Reveal'
 import { WhatsAppMark } from '../components/icons/WhatsAppMark'
+import { HolsbiMark } from '../components/HolsbiMark'
 import './Contact.css'
 
-export function Contact() {
-  const whatsappMessage = encodeURIComponent(
-    'Hola Marianela, vi tu portfolio y quiero conversar sobre un proyecto.',
-  )
-
-  return (
-    <section id="contacto" className="section contact">
-      <img src="/contact-h.svg" alt="" aria-hidden="true" className="contact__h-mark" width={300} height={340} loading="lazy" />
-      <div className="container">
-        <span className="section-index" aria-hidden="true">06</span>
-        <Reveal className="section-heading">
-          <p className="eyebrow">Contacto</p>
-          <h2 className="section-title">Construyamos algo que funcione.</h2>
-          <p className="section-lead">
-            Contame que necesitas resolver. Respondo por WhatsApp o email.
-          </p>
-        </Reveal>
-
-        <div className="contact__grid">
-          <div className="contact__terminal" aria-label="Terminal Holsbi conectada">holsbi@dev:~$ <span>ready_</span></div>
-          <Reveal className="contact__card">
-            <WhatsAppMark size={22} />
-            <div>
-              <a
-                href={`https://wa.me/${siteConfig.whatsapp.number}?text=${whatsappMessage}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary contact__action"
-              >
-                <WhatsAppMark size={19} />
-                Enviar WhatsApp
-              </a>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.08} className="contact__card">
-            <Mail size={20} />
-            <div>
-              <a href={`mailto:${siteConfig.email}`} className="btn btn-secondary contact__action">
-                <Mail size={19} />
-                Enviar mail
-              </a>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.16} className="contact__card">
-            <MapPin size={20} />
-            <div>
-              <p className="contact__label">Ciudad</p>
-              <p className="contact__value">{siteConfig.location}</p>
-            </div>
-          </Reveal>
-        </div>
-      </div>
-    </section>
-  )
+export function Contact(){
+ const message=encodeURIComponent('Hola Marianela, vi tu portfolio y quiero conversar sobre un proyecto.')
+ const wa=`https://wa.me/${siteConfig.whatsapp.number}?text=${message}`
+ return <section id="contacto" className="section contact"><div className="container"><span className="section-index" aria-hidden="true">06</span>
+  <div className="contact__layout">
+   <Reveal className="contact__intro"><p className="eyebrow">Contacto</p><h2 className="section-title">Construyamos algo que funcione.</h2><p>Contame que necesitas resolver. Podemos conversar por el canal que te resulte mas comodo.</p><div className="contact__actions"><a className="btn btn-primary" href={wa} target="_blank" rel="noreferrer"><WhatsAppMark size={19}/>Enviar WhatsApp</a><a className="btn btn-secondary" href={`mailto:${siteConfig.email}`}><Mail size={18}/>Enviar mail</a></div><p className="contact__status"><i/>Disponible para nuevos proyectos</p><small>Respuesta segun disponibilidad · Conversacion directa</small></Reveal>
+   <Reveal delay={.08} className="contact__core"><HolsbiMark animated/><div className="contact__terminal"><span>holsbi@dev:~$ </span><motion.b initial={{clipPath:'inset(0 100% 0 0)'}} whileInView={{clipPath:'inset(0 0 0 0)'}} viewport={{once:true}} transition={{duration:.45,delay:.15}}>ready</motion.b><i>_</i></div></Reveal>
+  </div>
+ </div></section>
 }

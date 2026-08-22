@@ -1,6 +1,6 @@
 import { Navbar } from './components/Navbar'
-import { SectionRail } from './components/SectionRail'
 import { WhatsAppButton } from './components/WhatsAppButton'
+import { FloorNav } from './components/FloorNav'
 import { Hero } from './sections/Hero'
 import { About } from './sections/About'
 import { Projects } from './sections/Projects'
@@ -13,11 +13,15 @@ import { Footer } from './sections/Footer'
 function App() {
   return (
     <>
+      <div className="cyber-atmosphere" aria-hidden="true">
+        <span className="cyber-atmosphere__orb cyber-atmosphere__orb--cyan" />
+        <span className="cyber-atmosphere__orb cyber-atmosphere__orb--magenta" />
+      </div>
       <a href="#inicio" className="skip-link">
         Saltar al contenido principal
       </a>
       <Navbar />
-      <SectionRail />
+      <FloorNav />
       <main>
         <Hero />
         <About />

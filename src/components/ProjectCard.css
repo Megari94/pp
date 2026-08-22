@@ -10,7 +10,13 @@
     border-color var(--transition-base),
     box-shadow var(--transition-base);
   position: relative;
+  height: 100%;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
+
+.project-card__cursor-light { position:absolute;z-index:3;left:calc(50% - 100px);top:calc(38% - 100px);width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(32,231,240,.13),transparent 68%);filter:blur(8px);pointer-events:none;opacity:0;transition:opacity 220ms ease; }
+.project-card--encantado-mates .project-card__cursor-light{background:radial-gradient(circle,rgba(210,111,76,.18),transparent 68%)}
 
 .project-card__chrome { height: 38px; display:flex; align-items:center; gap:7px; padding:0 14px; background:rgba(4,9,22,.94); border-bottom:1px solid var(--color-border); }
 .project-card__chrome span { width:7px;height:7px;border-radius:50%;background:var(--color-cyan);opacity:.65 }
@@ -32,37 +38,19 @@
   mask-composite: exclude;
   transition: opacity var(--transition-base);
   animation: card-energy 6s linear infinite;
-  animation-play-state: paused;
 }
 
 @media (hover: hover) {
   .project-card:hover {
-    transform: translateY(-4px);
     border-color: var(--color-border-strong);
     box-shadow: var(--shadow-card);
   }
 
-  .project-card:hover::before {
-    opacity: 0.85;
-    animation-play-state: running;
-  }
+  .project-card:hover::before { opacity: 0.85; }
+  .project-card:hover .project-card__cursor-light{opacity:1}
 }
 
 @keyframes card-energy { to { background-position: -260% 0; } }
-
-.project-card::after {
-  content: '';
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  width: 16px;
-  height: 16px;
-  border-bottom: 1.5px solid var(--color-magenta);
-  border-right: 1.5px solid var(--color-magenta);
-  opacity: 0.45;
-  pointer-events: none;
-  z-index: 3;
-}
 
 .project-card__media-btn {
   position: relative;
@@ -97,25 +85,12 @@
   color: var(--color-cyan);
 }
 
-.project-card__placeholder-tag {
-  position: absolute;
-  bottom: var(--space-3);
-  left: var(--space-3);
-  padding: 0.28rem 0.6rem;
-  border-radius: 4px;
-  font-size: 0.64rem;
-  font-family: var(--font-mono);
-  letter-spacing: 0.02em;
-  background: rgba(5, 8, 22, 0.8);
-  border: 1px solid rgba(255, 60, 172, 0.4);
-  color: var(--color-magenta);
-}
-
 .project-card__body {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
   padding: var(--space-6);
+  flex: 1;
 }
 
 .project-card__title {
@@ -150,7 +125,14 @@
   align-items: center;
   justify-content: space-between;
   margin-top: var(--space-2);
+  margin-top: auto;
 }
+
+.project-card--encantado-mates{border-color:rgba(210,111,76,.34)}
+.project-card--encantado-mates::before{background:linear-gradient(120deg,transparent 12%,#d26f4c,transparent 45%,transparent 72%,#f0a17d,transparent 94%)}
+
+@media (hover:none),(pointer:coarse){.project-card{transform:none!important}.project-card__cursor-light{display:none}.project-card__image{transform:none!important}}
+@media (prefers-reduced-motion:reduce){.project-card,.project-card__image,.project-card__cursor-light{transition-duration:1ms;animation:none!important;transform:none!important}}
 
 .project-card__link {
   background: none;

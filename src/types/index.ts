@@ -37,6 +37,8 @@ export interface ExperienceItem {
 export interface SkillGroupData {
   id: string
   title: string
+  short: string
+  description: string
   items: string[]
 }
 

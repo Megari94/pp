@@ -54,6 +54,25 @@ a.contact__value:hover {
 }
 
 .contact { background: linear-gradient(180deg, transparent, rgba(7, 21, 38, 0.65)); }
+
+.contact__h-mark {
+  position: absolute;
+  right: clamp(-1rem, 4vw, 3rem);
+  bottom: -4%;
+  z-index: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(9rem, 22vw, 20rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--color-cyan);
+  opacity: 0.14;
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .contact__h-mark { display: none; }
+}
 .contact__terminal { grid-column: 1 / -1; min-height: 86px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--color-border); border-radius: 2px 18px 2px 18px; background: rgba(3, 8, 20, 0.8); font: 600 clamp(1rem, 2vw, 1.45rem) var(--font-mono); color: var(--color-cyan); box-shadow: inset 0 0 35px rgba(32, 231, 240, 0.035); }
 .contact__terminal span { color: var(--color-magenta); animation: terminal-cursor 1s steps(1) infinite; }
 .contact__card { border-radius: 0; border-width: 0 0 1px; background: transparent; }

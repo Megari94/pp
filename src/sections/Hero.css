@@ -96,18 +96,6 @@
   box-shadow: 0 0 8px #3ddc84;
 }
 
-.hero__status-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4em;
-  color: var(--color-text-secondary);
-  transition: color var(--transition-fast);
-}
-
-.hero__status-link:hover {
-  color: var(--color-cyan);
-}
-
 .hero__visual-wrap {
   display: flex;
   justify-content: center;
@@ -115,6 +103,18 @@
   perspective: 1000px;
   min-height: 560px;
   align-items: center;
+}
+
+.hero__visual-wrap::before {
+  content: '';
+  position: absolute;
+  top: 4%;
+  right: 2%;
+  width: 22px;
+  height: 22px;
+  border-top: 1.5px solid var(--color-cyan);
+  border-right: 1.5px solid var(--color-cyan);
+  opacity: 0.6;
 }
 
 .hero-core { width: min(100%, 720px); height: auto; object-fit: contain; filter: drop-shadow(-18px 10px 38px rgba(32, 231, 240, 0.18)) drop-shadow(18px 4px 42px rgba(255, 45, 175, 0.14)); animation: core-float 8s ease-in-out infinite; }

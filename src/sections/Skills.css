@@ -39,6 +39,20 @@
   flex-direction: column;
 }
 
+.skills__accordion > li {
+  border-radius: var(--radius-md);
+  transition: box-shadow var(--transition-base);
+}
+
+.skills__accordion > li:has(.skills__row--open) {
+  box-shadow: 0 0 0 1px var(--color-cyan), 0 0 24px rgba(34, 230, 240, 0.12);
+}
+
+.skills__accordion > li:has(.skills__row--open) .skills__row,
+.skills__accordion > li:has(.skills__row--open) .skills__panel {
+  border-bottom-color: transparent;
+}
+
 .skills__row {
   width: 100%;
   display: grid;

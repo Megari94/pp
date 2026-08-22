@@ -2,7 +2,6 @@ import { motion } from 'motion/react'
 import { ArrowDown } from 'lucide-react'
 import { siteConfig } from '../data/siteConfig'
 import { useReducedMotion } from '../hooks/useReducedMotion'
-import { GithubMark } from '../components/icons/GithubMark'
 import './Hero.css'
 
 export function Hero() {
@@ -79,16 +78,6 @@ export function Hero() {
             SYS.OK
             <span aria-hidden="true">·</span>
             27.4514° S, 58.9867° W
-            <span aria-hidden="true">·</span>
-            <a
-              href={siteConfig.social.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero__status-link"
-            >
-              <GithubMark size={14} />
-              github.com/Megari94
-            </a>
           </motion.div>
         </div>
 

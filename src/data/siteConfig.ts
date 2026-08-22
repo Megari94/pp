@@ -16,9 +16,6 @@ export const siteConfig = {
   whatsapp: {
     number: '5493624147072',
   },
-  social: {
-    github: 'https://github.com/Megari94',
-  },
   // TODO: confirmar URL final una vez desplegado el sitio (dominio propio o subdominio).
   siteUrl: 'https://pp-portfolio.pages.dev',
 } as const

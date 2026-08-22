@@ -1,0 +1,120 @@
+.project-modal__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(3, 5, 14, 0.78);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--space-6);
+  overflow-y: auto;
+}
+
+.project-modal {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin-block: var(--space-8);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-bg-secondary);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.project-modal__close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(5, 8, 22, 0.75);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.project-modal__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.project-modal__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-8);
+}
+
+.project-modal__heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.project-modal__title {
+  font-size: 1.6rem;
+  color: var(--color-text);
+}
+
+.project-modal__tagline {
+  color: var(--color-text-secondary);
+}
+
+.project-modal__description {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.project-modal__cols {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 620px) {
+  .project-modal__cols {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.project-modal__body h4 {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-cyan);
+  margin-bottom: var(--space-2);
+}
+
+.project-modal__body p {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.project-modal__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.project-modal__tech li {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+.project-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}

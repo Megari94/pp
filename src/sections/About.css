@@ -1,0 +1,41 @@
+.about__grid {
+  display: grid;
+  gap: var(--space-8);
+}
+
+@media (min-width: 860px) {
+  .about__grid {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: var(--space-12);
+  }
+}
+
+.about__intro p {
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.about__intro strong {
+  color: var(--color-cyan);
+  font-weight: 600;
+}
+
+.about__points {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.about__point {
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.about__point p {
+  color: var(--color-text-secondary);
+}

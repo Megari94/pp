@@ -1,0 +1,29 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Media Kit de Diario Chaco</title>
+  <desc id="desc">Ilustracion de vista previa del proyecto Media Kit de Diario Chaco</desc>
+  <defs>
+    <linearGradient id="bgMK" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1328" />
+      <stop offset="100%" stop-color="#090d1f" />
+    </linearGradient>
+    <linearGradient id="strokeMK" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#ff3cac" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#bgMK)" />
+  <g opacity="0.25" stroke="rgba(125,145,255,0.35)">
+    <line x1="0" y1="100" x2="640" y2="100" />
+    <line x1="0" y1="200" x2="640" y2="200" />
+    <line x1="0" y1="300" x2="640" y2="300" />
+  </g>
+  <g transform="translate(230,150)">
+    <rect x="-90" y="-40" width="180" height="24" rx="4" fill="none" stroke="url(#strokeMK)" stroke-width="2.5" />
+    <rect x="-90" y="-4" width="110" height="70" rx="4" fill="none" stroke="url(#strokeMK)" stroke-width="2.5" />
+    <rect x="10" y="-4" width="80" height="32" rx="4" fill="none" stroke="url(#strokeMK)" stroke-width="2.5" />
+    <rect x="10" y="36" width="80" height="30" rx="4" fill="none" stroke="url(#strokeMK)" stroke-width="2.5" />
+    <rect x="-90" y="78" width="180" height="16" rx="3" fill="none" stroke="url(#strokeMK)" stroke-width="2.5" />
+  </g>
+  <text x="320" y="330" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="26" fill="#eaf2ff" font-weight="700">Media Kit — Diario Chaco</text>
+  <text x="320" y="358" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="13" letter-spacing="2" fill="#9aa8c7">FORMATOS · CONTENIDO · CONTACTO</text>
+</svg>

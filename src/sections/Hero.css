@@ -1,0 +1,142 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-top: 68px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(139, 92, 246, 0.14), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 90% 10%, rgba(34, 230, 230, 0.1), transparent 55%),
+    var(--color-bg);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--color-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 0%, transparent 75%);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.hero__glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero__grid {
+  position: relative;
+  display: grid;
+  gap: var(--space-16);
+  align-items: center;
+  padding-block: var(--space-16);
+}
+
+@media (min-width: 960px) {
+  .hero__grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: var(--space-12);
+  }
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 620px;
+}
+
+.hero__title {
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  color: var(--color-text);
+}
+
+.hero__tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+  font-weight: 600;
+}
+
+.hero__lead {
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+  max-width: 52ch;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.hero__github {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  margin-top: var(--space-2);
+  width: fit-content;
+  transition: color var(--transition-fast);
+}
+
+.hero__github:hover {
+  color: var(--color-cyan);
+}
+
+.hero__visual-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 959px) {
+  .hero__visual-wrap {
+    max-width: 280px;
+    margin-inline: auto;
+  }
+}
+
+.hero__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-8);
+  transform: translateX(-50%);
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  animation: hero-bounce 2.2s ease-in-out infinite;
+}
+
+@media (max-width: 640px) {
+  .hero__scroll {
+    display: none;
+  }
+}
+
+@keyframes hero-bounce {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll {
+    animation: none;
+  }
+}

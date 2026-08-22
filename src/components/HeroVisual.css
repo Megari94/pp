@@ -1,0 +1,80 @@
+.hero-visual {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  margin-inline: auto;
+}
+
+.hero-visual__ring {
+  fill: none;
+  stroke: var(--color-border-strong);
+  stroke-width: 1;
+}
+
+.hero-visual__ring--outer {
+  stroke-dasharray: 3 7;
+  animation: hero-spin 60s linear infinite;
+  transform-origin: 210px 210px;
+}
+
+.hero-visual__ring--inner {
+  stroke: var(--color-border);
+}
+
+.hero-visual__grid line {
+  stroke: var(--color-border);
+  stroke-width: 1;
+}
+
+.hero-visual__diamond {
+  fill: none;
+  stroke: url(#heroStroke);
+  stroke-width: 1.5;
+}
+
+.hero-visual__mark {
+  font-family: var(--font-display);
+  font-size: 46px;
+  font-weight: 700;
+  fill: var(--color-text);
+  letter-spacing: 0.02em;
+}
+
+.hero-visual__word {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.35em;
+  fill: var(--color-text-secondary);
+}
+
+.hero-visual__cursor rect {
+  fill: url(#heroStroke);
+  animation: hero-blink 1.6s steps(1) infinite;
+}
+
+@keyframes hero-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hero-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  95% {
+    opacity: 0.15;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual__ring--outer,
+  .hero-visual__cursor rect {
+    animation: none;
+  }
+}

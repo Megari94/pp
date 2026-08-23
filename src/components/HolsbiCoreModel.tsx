@@ -15,9 +15,8 @@ export function HolsbiCoreModel({ reduced, variant = 'hero' }: HolsbiCoreModelPr
   useEffect(() => {
     const host = hostRef.current
     const canvas = canvasRef.current
-    const desktop = window.matchMedia('(min-width: 768px)')
 
-    if (!host || !canvas || reduced || !desktop.matches) return
+    if (!host || !canvas || reduced) return
 
     let disposed = false
     let renderer: WebGLRenderer | undefined
@@ -49,7 +48,8 @@ export function HolsbiCoreModel({ reduced, variant = 'hero' }: HolsbiCoreModelPr
         return
       }
 
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5))
+      const mobile = window.matchMedia('(max-width: 767px)').matches
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, mobile ? 1 : 1.5))
       renderer.outputColorSpace = THREE.SRGBColorSpace
       renderer.toneMapping = THREE.ACESFilmicToneMapping
       renderer.toneMappingExposure = 1.28

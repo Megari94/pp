@@ -76,7 +76,7 @@
   opacity: 0;
 }
 
-@media (max-width: 767px), (prefers-reduced-motion: reduce) {
+@media (max-width: 767px) {
   .holsbi-model {
     inset: 0;
   }
@@ -87,12 +87,11 @@
     height: 190px;
   }
 
-  .holsbi-model__canvas {
-    display: none;
-  }
+}
 
+@media (prefers-reduced-motion: reduce) {
+  .holsbi-model__canvas { display: none; }
   .holsbi-model__fallback {
     opacity: 1;
   }
-
 }

@@ -102,7 +102,18 @@
   }
 }
 
-@media (max-width: 600px) { .hero__title { font-size: clamp(2.7rem, 13vw, 4.2rem); } .hero__visual-wrap { margin-top: -2rem; min-height: 300px; } }
+@media (max-width: 600px) {
+  .hero { align-items: flex-start; }
+  .hero__grid { gap: var(--space-2); padding-block: var(--space-6); }
+  .hero__title { font-size: clamp(2.7rem, 13vw, 4.2rem); }
+  .hero__visual-wrap {
+    grid-row: 1;
+    width: min(290px, 82vw);
+    min-height: 230px;
+    margin-inline: auto;
+  }
+  .hero__content { grid-row: 2; }
+}
 
 .hero__scroll {
   position: absolute;

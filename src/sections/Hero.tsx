@@ -2,7 +2,6 @@ import { motion } from 'motion/react'
 import { ArrowDown } from 'lucide-react'
 import { siteConfig } from '../data/siteConfig'
 import { useReducedMotion } from '../hooks/useReducedMotion'
-import { HolsbiCore3D } from '../components/HolsbiCore3D'
 import './Hero.css'
 
 export function Hero() {
@@ -74,7 +73,14 @@ export function Hero() {
           animate={reduced ? undefined : { opacity: 1, scale: 1, rotateY: 0 }}
           transition={{ duration: 0.9, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
         >
-          <HolsbiCore3D reduced={reduced} />
+          <img
+            src="/holsbi-core.webp"
+            alt="Holsbi Core, estructura H tridimensional en cian y magenta"
+            className="hero-core"
+            width={1247}
+            height={901}
+            fetchPriority="high"
+          />
         </motion.div>
       </div>
 

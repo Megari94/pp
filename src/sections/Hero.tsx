@@ -14,7 +14,7 @@ export function Hero() {
     <section id="inicio" className="hero">
       <div className="hero__glow" aria-hidden="true" />
       <div className="container hero__grid">
-        <span className="section-index section-index--hero" aria-hidden="true">01</span>
+        <span className="section-index" aria-hidden="true">01</span>
         <div className="hero__content">
           <motion.p
             className="eyebrow"

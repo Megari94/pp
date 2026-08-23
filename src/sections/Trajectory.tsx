@@ -20,7 +20,6 @@ export function Trajectory() {
     <section id="trayectoria" className="section trajectory" ref={sectionRef}>
       <div className="container">
         <span className="section-index" aria-hidden="true">04</span>
-        <span className="trajectory__watermark" aria-hidden="true">TRAYECTORIA</span>
         <Reveal className="section-heading">
           <p className="eyebrow">Trayectoria</p>
           <h2 className="section-title">Formacion y experiencia</h2>

@@ -66,9 +66,11 @@ export function HolsbiCoreModel({ reduced, variant = 'hero' }: HolsbiCoreModelPr
           const largestDimension = Math.max(size.x, size.y, size.z)
           const targetSize = 5
 
-          model.position.sub(center)
-          model.scale.setScalar(targetSize / largestDimension)
-          const modelSize = size.multiplyScalar(targetSize / largestDimension)
+          const modelScale = targetSize / largestDimension
+          model.scale.setScalar(modelScale)
+          model.position.set(-center.x * modelScale, -center.y * modelScale, -center.z * modelScale)
+          const modelSize = size.multiplyScalar(modelScale)
+          const centeredY = model.position.y
           model.rotation.x = -0.025
           model.rotation.y = -0.055
           scene.add(model)
@@ -112,7 +114,7 @@ export function HolsbiCoreModel({ reduced, variant = 'hero' }: HolsbiCoreModelPr
             smoothY += (pointerY - smoothY) * 0.045
             model.rotation.y = -0.055 + smoothX * 0.11 + Math.sin(elapsed * 0.45) * 0.025
             model.rotation.x = -0.025 - smoothY * 0.055
-            const baseY = variant === 'hero' ? -0.38 : -0.08
+            const baseY = centeredY + (variant === 'hero' ? -0.28 : 0)
             model.position.y = baseY + Math.sin(elapsed * 0.75) * 0.045
             renderer.render(scene, camera)
             if (visible) frame = requestAnimationFrame(renderFrame)

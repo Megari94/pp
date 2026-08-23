@@ -104,6 +104,7 @@
 
 @media (max-width: 600px) {
   .hero { align-items: flex-start; }
+  .hero > .section-index { top: calc(68px + var(--space-3)); }
   .hero__grid { gap: var(--space-2); padding-block: var(--space-6); }
   .hero__title { font-size: clamp(2.7rem, 13vw, 4.2rem); }
   .hero__visual-wrap {

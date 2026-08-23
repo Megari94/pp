@@ -195,6 +195,15 @@ svg {
   .section {
     padding-block: var(--space-16);
   }
+
+  .section-index {
+    top: var(--space-3);
+    left: var(--space-6);
+    z-index: 1;
+    font-size: 3rem;
+    color: rgba(82, 133, 255, 0.16);
+    letter-spacing: -0.06em;
+  }
 }
 
 .section-heading {

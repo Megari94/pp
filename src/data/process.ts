@@ -11,7 +11,7 @@ export const processSteps: ProcessStep[] = [
   {
     id: 'disenar',
     order: 2,
-    title: 'Disenar',
+    title: 'Diseñar',
     description:
       'Propongo una estructura de contenido e interfaz clara, priorizando lo que el usuario necesita encontrar primero.',
   },

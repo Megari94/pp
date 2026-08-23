@@ -40,7 +40,7 @@ export function Navbar() {
       <div className="container navbar__inner">
         <a href="#inicio" className="navbar__brand" onClick={() => setMenuOpen(false)}>
           <span className="navbar__brand-mark"><HolsbiMark compact /></span>
-          <span className="navbar__brand-name">Holsbi</span>
+          <span className="navbar__brand-name">MH</span>
         </a>
 
         <nav className="navbar__links" aria-label="Navegacion principal">

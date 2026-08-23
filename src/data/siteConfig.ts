@@ -5,10 +5,9 @@
 export const siteConfig = {
   name: 'Marianela Holsbach',
   role: 'Web Developer',
-  brand: 'Holsbi',
   tagline: 'Donde la tecnologia encuentra la eficiencia.',
   intro:
-    'Soy Marianela Holsbach, Web Developer y creadora de Holsbi. Diseno y desarrollo experiencias digitales que combinan tecnologia, claridad y objetivos reales.',
+    'Soy Marianela Holsbach, Web Developer. Diseno y desarrollo experiencias digitales que combinan tecnologia, claridad y objetivos reales.',
   heroValueProp:
     'Transformo ideas y necesidades reales en experiencias digitales claras, modernas y funcionales.',
   location: 'Resistencia, Chaco, Argentina',

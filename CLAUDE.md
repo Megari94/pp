@@ -5,7 +5,7 @@ primero. Este documento solo agrega notas especificas para Claude Code.
 
 ## Resumen
 
-Portfolio de Marianela Holsbach / Holsbi. React + TypeScript + Vite, CSS
+Portfolio de Marianela Holsbach. React + TypeScript + Vite, CSS
 puro con variables, `motion` + `lucide-react`. Contenido separado en
 `src/data/*.ts` (tipado) para poder crecer sin tocar componentes.
 

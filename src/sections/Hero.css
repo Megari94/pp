@@ -57,7 +57,6 @@
   color: var(--color-text);
 }
 
-.hero__title::after { content: ',\A Holsbi'; white-space: pre; color: var(--color-cyan); }
 
 .hero__tagline {
   font-family: var(--font-display);

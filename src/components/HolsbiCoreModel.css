@@ -6,6 +6,8 @@
   isolation: isolate;
 }
 
+.holsbi-model--hero { cursor: grab; touch-action: pan-y; user-select: none; }
+.holsbi-model--hero.holsbi-model--dragging { cursor: grabbing; }
 .holsbi-model--compact {
   position: relative;
   inset: auto;
@@ -92,4 +94,5 @@
   .holsbi-model__fallback {
     opacity: 1;
   }
+
 }

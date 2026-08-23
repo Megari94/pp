@@ -10,7 +10,6 @@ export function Footer() {
       <div className="container footer__inner">
         <div className="footer__brand">
           <p className="footer__name">{siteConfig.name}</p>
-          <p className="footer__holsbi gradient-text">{siteConfig.brand}</p>
           <p className="footer__tagline">{siteConfig.tagline}</p>
         </div>
 
@@ -26,7 +25,7 @@ export function Footer() {
 
       <div className="container footer__bottom">
         <p>
-          © {year} {siteConfig.name}. Diseno y desarrollo: {siteConfig.name} — {siteConfig.brand}.
+          © {year} {siteConfig.name}. Diseno y desarrollo: {siteConfig.name}.
         </p>
         <a href="#inicio">Volver arriba ↑</a><span>SYS.OK</span>
       </div>

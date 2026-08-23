@@ -22,7 +22,7 @@ export function Hero() {
             animate={animate}
             transition={{ duration: 0.5 }}
           >
-            Web Developer · Creadora de Holsbi
+            Web Developer
           </motion.p>
 
           <motion.h1

@@ -23,8 +23,8 @@ export function About() {
         <div className="about__grid">
           <Reveal className="about__intro">
             <p>
-              Soy Web Developer y estoy construyendo <strong>Holsbi</strong> como mi identidad
-              tecnologica: el espacio desde el cual diseno y desarrollo soluciones digitales.
+              Soy Web Developer y diseno soluciones digitales que convierten necesidades reales
+              en experiencias claras, funcionales y preparadas para crecer.
             </p>
           </Reveal>
 

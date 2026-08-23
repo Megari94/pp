@@ -4,8 +4,8 @@ Guia rapida para cualquier agente (o persona) que continue este proyecto.
 
 ## Que es esto
 
-Portfolio profesional de Marianela Holsbach (Web Developer, creadora de
-Holsbi). SPA de una sola pagina con secciones ancladas: Inicio, Sobre mi,
+Portfolio profesional de Marianela Holsbach (Web Developer). SPA de una sola
+pagina con secciones ancladas: Inicio, Sobre mi,
 Proyectos, Trayectoria, Capacidades, Contacto (mas Metodo de trabajo sin
 entrada propia en el nav).
 
@@ -58,8 +58,8 @@ npm run build    # tsc -b + vite build
 - La trayectoria de `src/data/experience.ts` debe basarse exclusivamente en el
   CV confirmado de Marianela. Si no hay fecha, se omite; nunca se inventa.
 - No publicar enlaces a repositorios ni accesos al codigo de los proyectos.
-- Holsbi se presenta como identidad tecnologica en construccion, no como
-  empresa consolidada con equipo/clientes.
+- La comunicacion debe mantenerse personal: no presentar una empresa,
+  equipo o clientes que no esten confirmados.
 
 ## Definicion de terminado (para cualquier cambio)
 

@@ -106,6 +106,20 @@ export function HolsbiCoreModel({ reduced, variant = 'hero' }: HolsbiCoreModelPr
           let pointerY = 0
           let smoothX = 0
           let smoothY = 0
+          let dragging = false
+          let activePointerId: number | null = null
+          let lastPointerX = 0
+          let lastPointerY = 0
+          let dragX = 0
+          let dragY = 0
+          let dragRotationX = 0
+          let dragRotationY = 0
+          let targetDragX = 0
+          let targetDragY = 0
+          let targetRotationX = 0
+          let targetRotationY = 0
+          let velocityX = 0
+          let velocityY = 0
           const startedAt = performance.now()
 
           const renderFrame = (now: number) => {
@@ -113,11 +127,23 @@ export function HolsbiCoreModel({ reduced, variant = 'hero' }: HolsbiCoreModelPr
             const elapsed = (now - startedAt) / 1000
             smoothX += (pointerX - smoothX) * 0.045
             smoothY += (pointerY - smoothY) * 0.045
-            pivot.rotation.y = -0.08 + smoothX * 0.3 + Math.sin(elapsed * 0.45) * 0.035
-            pivot.rotation.x = -0.035 - smoothY * 0.14
-            pivot.position.x = smoothX * 0.15
+
+            if (!dragging) {
+              targetDragX = THREE.MathUtils.clamp(targetDragX + velocityX, -0.72, 0.72)
+              targetDragY = THREE.MathUtils.clamp(targetDragY + velocityY, -0.55, 0.55)
+              velocityX *= 0.9
+              velocityY *= 0.9
+            }
+
+            dragX += (targetDragX - dragX) * 0.14
+            dragY += (targetDragY - dragY) * 0.14
+            dragRotationX += (targetRotationX - dragRotationX) * 0.12
+            dragRotationY += (targetRotationY - dragRotationY) * 0.12
+            pivot.rotation.y = -0.08 + dragRotationY + smoothX * 0.08 + Math.sin(elapsed * 0.45) * 0.025
+            pivot.rotation.x = -0.035 + dragRotationX - smoothY * 0.05
+            pivot.position.x = dragX + smoothX * 0.04
             const baseY = variant === 'hero' ? -0.08 : 0
-            pivot.position.y = baseY + Math.sin(elapsed * 0.72) * 0.065 - smoothY * 0.13
+            pivot.position.y = baseY + dragY + Math.sin(elapsed * 0.72) * 0.05 - smoothY * 0.04
             renderer.render(scene, camera)
             if (visible) frame = requestAnimationFrame(renderFrame)
           }
@@ -139,17 +165,64 @@ export function HolsbiCoreModel({ reduced, variant = 'hero' }: HolsbiCoreModelPr
             const rect = host.getBoundingClientRect()
             pointerX = ((event.clientX - rect.left) / rect.width - 0.5) * 2
             pointerY = ((event.clientY - rect.top) / rect.height - 0.5) * 2
+
+            if (!dragging || event.pointerId !== activePointerId) return
+            const deltaX = event.clientX - lastPointerX
+            const deltaY = event.clientY - lastPointerY
+            lastPointerX = event.clientX
+            lastPointerY = event.clientY
+            targetDragX = THREE.MathUtils.clamp(targetDragX + (deltaX / rect.width) * 1.35, -0.72, 0.72)
+            targetDragY = THREE.MathUtils.clamp(targetDragY - (deltaY / rect.height) * 1.15, -0.55, 0.55)
+            targetRotationY = THREE.MathUtils.clamp(targetRotationY + deltaX * 0.006, -0.6, 0.6)
+            targetRotationX = THREE.MathUtils.clamp(targetRotationX + deltaY * 0.004, -0.28, 0.28)
+            velocityX = (deltaX / rect.width) * 0.12
+            velocityY = -(deltaY / rect.height) * 0.1
+          }
+          const onPointerDown = (event: PointerEvent) => {
+            if (variant !== 'hero' || event.button !== 0) return
+            dragging = true
+            activePointerId = event.pointerId
+            lastPointerX = event.clientX
+            lastPointerY = event.clientY
+            velocityX = 0
+            velocityY = 0
+            host.setPointerCapture(event.pointerId)
+            host.classList.add('holsbi-model--dragging')
+          }
+          const finishDrag = (event: PointerEvent) => {
+            if (event.pointerId !== activePointerId) return
+            dragging = false
+            activePointerId = null
+            if (host.hasPointerCapture(event.pointerId)) host.releasePointerCapture(event.pointerId)
+            host.classList.remove('holsbi-model--dragging')
+          }
+          const resetModel = () => {
+            targetDragX = 0
+            targetDragY = 0
+            targetRotationX = 0
+            targetRotationY = 0
+            velocityX = 0
+            velocityY = 0
           }
           const onPointerLeave = () => {
+            if (dragging) return
             pointerX = 0
             pointerY = 0
           }
 
-          host.addEventListener('pointermove', onPointerMove, { passive: true })
+          host.addEventListener('pointerdown', onPointerDown)
+          host.addEventListener('pointermove', onPointerMove)
+          host.addEventListener('pointerup', finishDrag)
+          host.addEventListener('pointercancel', finishDrag)
           host.addEventListener('pointerleave', onPointerLeave)
+          host.addEventListener('dblclick', resetModel)
           removePointerListeners = () => {
+            host.removeEventListener('pointerdown', onPointerDown)
             host.removeEventListener('pointermove', onPointerMove)
+            host.removeEventListener('pointerup', finishDrag)
+            host.removeEventListener('pointercancel', finishDrag)
             host.removeEventListener('pointerleave', onPointerLeave)
+            host.removeEventListener('dblclick', resetModel)
           }
 
           resizeObserver = new ResizeObserver(resize)
@@ -186,14 +259,14 @@ export function HolsbiCoreModel({ reduced, variant = 'hero' }: HolsbiCoreModelPr
     <div ref={hostRef} className={`holsbi-model holsbi-model--${variant} ${ready ? 'holsbi-model--ready' : ''}`}>
       <img
         src="/holsbi-core.webp"
-        alt="Holsbi Core, estructura H tridimensional en cian y magenta"
+        alt="Estructura H tridimensional en cian y magenta"
         className="holsbi-model__fallback"
         width={1247}
         height={901}
         fetchPriority="high"
       />
       <canvas ref={canvasRef} className="holsbi-model__canvas" aria-hidden="true" />
-      <span className="visually-hidden">La pieza tridimensional reacciona suavemente al movimiento del cursor.</span>
+      <span className="visually-hidden">La pieza tridimensional se puede mover y rotar mediante arrastre.</span>
     </div>
   )
 }

@@ -1,7 +1,7 @@
-# Portfolio — Marianela Holsbach / Holsbi
+# Portfolio — Marianela Holsbach
 
-Portfolio profesional de Marianela Holsbach, Web Developer y creadora de
-**Holsbi**. Presenta proyectos, trayectoria, capacidades y vías de contacto.
+Portfolio profesional de Marianela Holsbach, Web Developer. Presenta proyectos,
+trayectoria, capacidades y vías de contacto.
 
 ## Stack
 

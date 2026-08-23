@@ -46,8 +46,7 @@
   background: radial-gradient(circle, rgba(255, 45, 175, 0.2), rgba(139, 92, 246, 0.07) 44%, transparent 72%);
 }
 
-.holsbi-model__canvas,
-.holsbi-model__fallback {
+.holsbi-model__canvas {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -60,20 +59,8 @@
   transition: opacity 500ms ease;
 }
 
-.holsbi-model__fallback {
-  object-fit: contain;
-  filter:
-    drop-shadow(-10px 4px 24px rgba(32, 231, 240, 0.2))
-    drop-shadow(10px 4px 26px rgba(255, 45, 175, 0.18));
-  transition: opacity 500ms ease;
-}
-
 .holsbi-model--ready .holsbi-model__canvas {
   opacity: 1;
-}
-
-.holsbi-model--ready .holsbi-model__fallback {
-  opacity: 0;
 }
 
 @media (max-width: 767px) {
@@ -91,7 +78,4 @@
 
 @media (prefers-reduced-motion: reduce) {
   .holsbi-model__canvas { display: none; }
-  .holsbi-model__fallback {
-    opacity: 1;
-  }
 }

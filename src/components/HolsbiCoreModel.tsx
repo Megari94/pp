@@ -257,14 +257,6 @@ export function HolsbiCoreModel({ reduced, variant = 'hero' }: HolsbiCoreModelPr
 
   return (
     <div ref={hostRef} className={`holsbi-model holsbi-model--${variant} ${ready ? 'holsbi-model--ready' : ''}`}>
-      <img
-        src="/holsbi-core.webp"
-        alt="Estructura H tridimensional en cian y magenta"
-        className="holsbi-model__fallback"
-        width={1247}
-        height={901}
-        fetchPriority="high"
-      />
       <canvas ref={canvasRef} className="holsbi-model__canvas" aria-hidden="true" />
       <span className="visually-hidden">La pieza tridimensional se puede mover y rotar mediante arrastre.</span>
     </div>

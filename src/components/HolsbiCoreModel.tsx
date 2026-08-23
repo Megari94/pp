@@ -4,9 +4,10 @@ import './HolsbiCoreModel.css'
 
 interface HolsbiCoreModelProps {
   reduced: boolean
+  variant?: 'hero' | 'compact'
 }
 
-export function HolsbiCoreModel({ reduced }: HolsbiCoreModelProps) {
+export function HolsbiCoreModel({ reduced, variant = 'hero' }: HolsbiCoreModelProps) {
   const hostRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [ready, setReady] = useState(false)
@@ -111,7 +112,8 @@ export function HolsbiCoreModel({ reduced }: HolsbiCoreModelProps) {
             smoothY += (pointerY - smoothY) * 0.045
             model.rotation.y = -0.055 + smoothX * 0.11 + Math.sin(elapsed * 0.45) * 0.025
             model.rotation.x = -0.025 - smoothY * 0.055
-            model.position.y = Math.sin(elapsed * 0.75) * 0.045
+            const baseY = variant === 'hero' ? -0.38 : -0.08
+            model.position.y = baseY + Math.sin(elapsed * 0.75) * 0.045
             renderer.render(scene, camera)
             if (visible) frame = requestAnimationFrame(renderFrame)
           }
@@ -174,10 +176,10 @@ export function HolsbiCoreModel({ reduced }: HolsbiCoreModelProps) {
       disposableMaterials.forEach((material) => material.dispose())
       renderer?.dispose()
     }
-  }, [reduced])
+  }, [reduced, variant])
 
   return (
-    <div ref={hostRef} className={`holsbi-model ${ready ? 'holsbi-model--ready' : ''}`}>
+    <div ref={hostRef} className={`holsbi-model holsbi-model--${variant} ${ready ? 'holsbi-model--ready' : ''}`}>
       <img
         src="/holsbi-core.webp"
         alt="Holsbi Core, estructura H tridimensional en cian y magenta"

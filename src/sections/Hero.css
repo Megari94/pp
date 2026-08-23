@@ -86,6 +86,13 @@
   align-items: center;
 }
 
+/* En el hero el indice acompana el encabezado, igual que en las secciones siguientes. */
+@media (min-width: 768px) {
+  .hero > .section-index {
+    top: clamp(10.5rem, 25vh, 14.5rem);
+  }
+}
+
 
 @media (max-width: 959px) {
   .hero__visual-wrap {

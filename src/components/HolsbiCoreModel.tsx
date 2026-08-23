@@ -35,7 +35,7 @@ export function HolsbiCoreModel({ reduced }: HolsbiCoreModelProps) {
 
       const scene = new THREE.Scene()
       const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100)
-      camera.position.set(0, 0.25, 7.6)
+      camera.position.set(0, 0.08, 9)
 
       try {
         renderer = new THREE.WebGLRenderer({
@@ -51,7 +51,7 @@ export function HolsbiCoreModel({ reduced }: HolsbiCoreModelProps) {
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5))
       renderer.outputColorSpace = THREE.SRGBColorSpace
       renderer.toneMapping = THREE.ACESFilmicToneMapping
-      renderer.toneMappingExposure = 1.05
+      renderer.toneMappingExposure = 1.28
 
       const loader = new GLTFLoader()
       loader.load(
@@ -63,12 +63,13 @@ export function HolsbiCoreModel({ reduced }: HolsbiCoreModelProps) {
           const center = bounds.getCenter(new THREE.Vector3())
           const size = bounds.getSize(new THREE.Vector3())
           const largestDimension = Math.max(size.x, size.y, size.z)
-          const targetSize = 5.35
+          const targetSize = 5
 
           model.position.sub(center)
           model.scale.setScalar(targetSize / largestDimension)
+          const modelSize = size.multiplyScalar(targetSize / largestDimension)
           model.rotation.x = -0.025
-          model.rotation.y = -0.08
+          model.rotation.y = -0.055
           scene.add(model)
 
           model.traverse((object: Object3D) => {
@@ -78,13 +79,24 @@ export function HolsbiCoreModel({ reduced }: HolsbiCoreModelProps) {
             materials.forEach((material) => disposableMaterials.add(material))
           })
 
-          scene.add(new THREE.HemisphereLight(0x7ddfff, 0x060713, 1.65))
-          const cyanLight = new THREE.PointLight(0x20e7f0, 18, 15)
-          cyanLight.position.set(-4, 2.5, 4)
+          scene.add(new THREE.HemisphereLight(0x8eefff, 0x070512, 2.15))
+          const cyanLight = new THREE.PointLight(0x20e7f0, 34, 16)
+          cyanLight.position.set(-3.8, 2.25, 4.5)
           scene.add(cyanLight)
-          const magentaLight = new THREE.PointLight(0xff2daf, 16, 15)
-          magentaLight.position.set(4, 1.2, 3.5)
+          const magentaLight = new THREE.PointLight(0xff2daf, 31, 16)
+          magentaLight.position.set(3.9, 1.15, 4.2)
           scene.add(magentaLight)
+          const topLight = new THREE.DirectionalLight(0xd8ecff, 2.8)
+          topLight.position.set(0, 5, 4)
+          scene.add(topLight)
+          const cyanRim = new THREE.SpotLight(0x36f5ff, 42, 18, Math.PI / 4, 0.72)
+          cyanRim.position.set(-4.8, 0.4, 5)
+          cyanRim.target.position.set(0, 0, 0)
+          scene.add(cyanRim, cyanRim.target)
+          const magentaRim = new THREE.SpotLight(0xff3cac, 38, 18, Math.PI / 4, 0.72)
+          magentaRim.position.set(4.8, 0.2, 5)
+          magentaRim.target.position.set(0, 0, 0)
+          scene.add(magentaRim, magentaRim.target)
 
           let pointerX = 0
           let pointerY = 0
@@ -97,7 +109,7 @@ export function HolsbiCoreModel({ reduced }: HolsbiCoreModelProps) {
             const elapsed = (now - startedAt) / 1000
             smoothX += (pointerX - smoothX) * 0.045
             smoothY += (pointerY - smoothY) * 0.045
-            model.rotation.y = -0.08 + smoothX * 0.11 + Math.sin(elapsed * 0.45) * 0.025
+            model.rotation.y = -0.055 + smoothX * 0.11 + Math.sin(elapsed * 0.45) * 0.025
             model.rotation.x = -0.025 - smoothY * 0.055
             model.position.y = Math.sin(elapsed * 0.75) * 0.045
             renderer.render(scene, camera)
@@ -109,6 +121,10 @@ export function HolsbiCoreModel({ reduced }: HolsbiCoreModelProps) {
             const { width, height } = host.getBoundingClientRect()
             renderer.setSize(width, height, false)
             camera.aspect = width / Math.max(height, 1)
+            const halfFov = THREE.MathUtils.degToRad(camera.fov / 2)
+            const verticalDistance = modelSize.y / (2 * Math.tan(halfFov))
+            const horizontalDistance = modelSize.x / (2 * Math.tan(halfFov) * camera.aspect)
+            camera.position.z = Math.max(verticalDistance, horizontalDistance) * 1.32 + modelSize.z * 0.5
             camera.updateProjectionMatrix()
             renderer.render(scene, camera)
           }

@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Fuentes de diseño locales (Blender y renders originales)
+design-source/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

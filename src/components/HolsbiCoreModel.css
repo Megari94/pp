@@ -1,0 +1,49 @@
+.holsbi-model {
+  position: absolute;
+  inset: -4% -7% -6%;
+  display: grid;
+  place-items: center;
+}
+
+.holsbi-model__canvas,
+.holsbi-model__fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.holsbi-model__canvas {
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+.holsbi-model__fallback {
+  object-fit: contain;
+  filter:
+    drop-shadow(-10px 4px 24px rgba(32, 231, 240, 0.2))
+    drop-shadow(10px 4px 26px rgba(255, 45, 175, 0.18));
+  transition: opacity 500ms ease;
+}
+
+.holsbi-model--ready .holsbi-model__canvas {
+  opacity: 1;
+}
+
+.holsbi-model--ready .holsbi-model__fallback {
+  opacity: 0;
+}
+
+@media (max-width: 767px), (prefers-reduced-motion: reduce) {
+  .holsbi-model {
+    inset: 0;
+  }
+
+  .holsbi-model__canvas {
+    display: none;
+  }
+
+  .holsbi-model__fallback {
+    opacity: 1;
+  }
+}

@@ -13,8 +13,8 @@ export function Hero() {
   return (
     <section id="inicio" className="hero">
       <div className="hero__glow" aria-hidden="true" />
+      <span className="section-index" aria-hidden="true">01</span>
       <div className="container hero__grid">
-        <span className="section-index" aria-hidden="true">01</span>
         <div className="hero__content">
           <motion.p
             className="eyebrow"

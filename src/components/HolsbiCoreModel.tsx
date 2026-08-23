@@ -70,10 +70,11 @@ export function HolsbiCoreModel({ reduced, variant = 'hero' }: HolsbiCoreModelPr
           model.scale.setScalar(modelScale)
           model.position.set(-center.x * modelScale, -center.y * modelScale, -center.z * modelScale)
           const modelSize = size.multiplyScalar(modelScale)
-          const centeredY = model.position.y
-          model.rotation.x = -0.025
-          model.rotation.y = -0.055
-          scene.add(model)
+          const pivot = new THREE.Group()
+          pivot.rotation.x = -0.035
+          pivot.rotation.y = -0.08
+          pivot.add(model)
+          scene.add(pivot)
 
           model.traverse((object: Object3D) => {
             const mesh = object as Object3D & { material?: Material | Material[] }
@@ -112,10 +113,11 @@ export function HolsbiCoreModel({ reduced, variant = 'hero' }: HolsbiCoreModelPr
             const elapsed = (now - startedAt) / 1000
             smoothX += (pointerX - smoothX) * 0.045
             smoothY += (pointerY - smoothY) * 0.045
-            model.rotation.y = -0.055 + smoothX * 0.11 + Math.sin(elapsed * 0.45) * 0.025
-            model.rotation.x = -0.025 - smoothY * 0.055
-            const baseY = centeredY + (variant === 'hero' ? -0.28 : 0)
-            model.position.y = baseY + Math.sin(elapsed * 0.75) * 0.045
+            pivot.rotation.y = -0.08 + smoothX * 0.3 + Math.sin(elapsed * 0.45) * 0.035
+            pivot.rotation.x = -0.035 - smoothY * 0.14
+            pivot.position.x = smoothX * 0.15
+            const baseY = variant === 'hero' ? -0.08 : 0
+            pivot.position.y = baseY + Math.sin(elapsed * 0.72) * 0.065 - smoothY * 0.13
             renderer.render(scene, camera)
             if (visible) frame = requestAnimationFrame(renderFrame)
           }
